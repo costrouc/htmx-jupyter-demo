@@ -1,0 +1,14 @@
+<div id="cell-{{cell_uuid}}" class="card">
+    <div class="card-header">
+        <div class="btn-group" role="group" aria-label="Basic example">
+            <button type="button" class="btn btn-secondary" hx-delete="/kernels/cell" hx-target="#cell-{{cell_uuid}}"><i class="bi bi-trash-fill"></i></button>
+            <button type="button" class="btn btn-secondary" id="cell-{{cell_uuid}}-execute"><i class="bi bi-play-fill"></i></button>
+        </div>
+    </div>
+    <div class="card-body">
+        <form hx-post="/kernels/cell" hx-target="#cell-{{cell_uuid}}-output" hx-trigger="keydown[shiftKey&&key=='Enter'], click from:#cell-{{cell_uuid}}-execute" id="cell-{{cell_uuid}}-input">
+            <textarea class="form-control" name="cell" rows="3" ></textarea>
+        </form>
+        <div id="cell-{{cell_uuid}}-output"></div>
+    </div>
+</div>
